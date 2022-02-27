@@ -7,6 +7,7 @@ public class Main {
     
     static long[][] bridge = new long[MAX][MAX];
     static long[] visit = new long[MAX];
+
     public static void input() {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
