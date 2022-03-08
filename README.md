@@ -14,3 +14,10 @@
 |[(프로그래머스)타겟넘버](https://programmers.co.kr/learn/courses/30/lessons/43165)|그래프탐색|
 |[(백준)11399_ATM](https://www.acmicpc.net/problem/11399)|그리디,정렬|
 |[(백준)21608_상어초등학교](https://www.acmicpc.net/problem/21608)|구현|
+|[(백준)1541_잃어버린 괄호](https://www.acmicpc.net/problem/1541)|그리디,문자열,수학,파싱|
+
+### 2-2. 5추자
+| `[문제](링크)` |분류|
+|--|--|
+|[(백준)17298_오큰수]()|자료구조-스택|
+|[(백준)2583_영역구하기](https://www.acmicpc.net/problem/2583)|그래프 탐색|
