@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/algo-study-spring.iml" filepath="$PROJECT_DIR$/algo-study-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jini/jini.iml" filepath="$PROJECT_DIR$/jini/jini.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nsh/nsh.iml" filepath="$PROJECT_DIR$/nsh/nsh.iml" />
+    </modules>
+  </component>
+</project>
