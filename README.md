@@ -21,3 +21,4 @@
 |--|--|
 |[(백준)17298_오큰수](https://www.acmicpc.net/problem/17298)|자료구조-스택|
 |[(백준)2583_영역구하기](https://www.acmicpc.net/problem/2583)|그래프 탐색|
+|[(프로그래머스)폰켓몬](https://programmers.co.kr/learn/courses/30/lessons/1845)|그리디|
