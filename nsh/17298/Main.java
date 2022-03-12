@@ -37,8 +37,10 @@ public class Main {
         input();
         getNGE();
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < N; i++) {
-            System.out.print(answer[i] + " ");
+            sb.append(answer[i]).append(' ');
         }
+        System.out.print(sb);
     }
 }
