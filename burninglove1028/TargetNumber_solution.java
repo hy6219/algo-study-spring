@@ -42,6 +42,6 @@ public class TargetNumber_solution {
 
 		TargetNumber tn = new TargetNumber();
 		int res = tn.solution(numbers, target);
-		System.out.println(res);
+		System.out.println(res); 
 	}
 }
