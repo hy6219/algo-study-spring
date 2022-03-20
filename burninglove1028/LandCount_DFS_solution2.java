@@ -75,6 +75,6 @@ public class LandCount_DFS_solution2 {
 		int [][]data = {{1, 0, 1, 0, 1}, {0, 0, 0, 0, 0}, {1, 0, 1, 0, 1}, {0, 0, 0, 0, 0}, {1, 0, 1, 1, 1}}
 		int count = solution(data);
 
-	}
+	} 
 	
 }
