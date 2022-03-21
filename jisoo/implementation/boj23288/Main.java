@@ -148,7 +148,7 @@ public class Main {
          */
         public void rotateDice() {
             int dir = this.getCurDir();
-
+            System.out.println("dir: "+dir);
             if (dir == 1) {
                 //동
                 //앞뒤x
@@ -161,6 +161,7 @@ public class Main {
                  * 뒷면:2 -> 뒷면
                  * 밑면:6 -> 왼쪽
                  */
+                System.out.println("in");
                 this.setUp(this.getLeft());
                 this.setDown(this.getRight());
                 this.setLeft(this.getDown());
@@ -268,24 +269,24 @@ public class Main {
 
     static void rotateAndMove() {
         int ord = 0;
-        int curR = 0;
-        int curC = 0;
-        int curDir = 0;
+        int curR = dice.getR();
+        int curC = dice.getC();
+        int direction = dice.getCurDir();
 
         while (ord < K) {
             //1.주사위가 이동 방향으로 한 칸 굴러간다.
             // 만약, 이동 방향에 칸이 없다면, 이동 방향을 반대로 한 다음 한 칸 굴러간다.
             curR = dice.getR();
             curC = dice.getC();
-            curDir = dice.getCurDir();
+            direction = dice.getCurDir();
 
-            int nr = curR + dir[curDir][0];
-            int nc = curC + dir[curDir][1];
-
+            int nr = curR + dir[direction][0];
+            int nc = curC + dir[direction][1];
+            System.out.println("before: "+dice);
             if (nr <= 0 || nc <= 0 || nr > N || nc > M) {
-                curDir = (curDir + 2) % 4;
-                nr = curR + dir[curDir][0];
-                nc = curC + dir[curDir][1];
+                direction = (direction + 2) % 4;
+                nr = curR + dir[direction][0];
+                nc = curC + dir[direction][1];
             }
 
             curR = nr;
@@ -294,6 +295,7 @@ public class Main {
             //한칸 굴러가기
             dice.setR(curR);
             dice.setC(curC);
+            dice.setCurDir(direction);
             dice.rotateDice();
             //2.주사위가 도착한 칸 (x, y)에 대한 점수를 획득
             /*
@@ -313,7 +315,7 @@ public class Main {
             int a = dice.getDown();
             //b
             int b = map[curR][curC];
-
+            System.out.println("a : "+a+", b: "+b);
             if (a > b) {
                 //시계방향 회전
                 dice.clockDir();
@@ -322,6 +324,8 @@ public class Main {
                 dice.clockReverseDir();
             }
             ord++;
+            System.out.println("after: "+dice);
+            System.out.println("--");
         }
 
         //점수 구하기
