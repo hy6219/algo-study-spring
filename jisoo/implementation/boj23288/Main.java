@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    static class Dice {
+    static class Dice implements Cloneable{
         private int up;//윗면
         private int down;//밑면
         private int left;//왼쪽
@@ -146,9 +146,10 @@ public class Main {
          * <p>
          * =>북/남쪽 회전은 왼쪽/오른쪽이 변경되지 않음
          */
-        public void rotateDice() {
+        public void rotateDice() throws CloneNotSupportedException {
             int dir = this.getCurDir();
             System.out.println("dir: "+dir);
+            Dice copied = (Dice) this.clone();
             if (dir == 1) {
                 //동
                 //앞뒤x
@@ -162,10 +163,10 @@ public class Main {
                  * 밑면:6 -> 왼쪽
                  */
                 System.out.println("in");
-                this.setUp(this.getLeft());
-                this.setDown(this.getRight());
-                this.setLeft(this.getDown());
-                this.setRight(this.getUp());
+                this.setUp(copied.getLeft());
+                this.setDown(copied.getRight());
+                this.setLeft(copied.getDown());
+                this.setRight(copied.getUp());
             } else if (dir == 3) {
                 //서
                 //앞뒤x
@@ -178,10 +179,10 @@ public class Main {
                  * 뒷면:2 -> 뒷면
                  * 밑면:6 -> 오른쪽
                  */
-                this.setUp(this.getRight());
-                this.setDown(this.getLeft());
-                this.setLeft(this.getUp());
-                this.setRight(this.getDown());
+                this.setUp(copied.getRight());
+                this.setDown(copied.getLeft());
+                this.setLeft(copied.getUp());
+                this.setRight(copied.getDown());
             } else if (dir == 0) {
                 /**
                  * 4) 북쪽으로 회전
@@ -193,10 +194,10 @@ public class Main {
                  * 밑면:6 -> 앞면
                  */
                 //왼오x
-                this.setUp(this.getFront());
-                this.setDown(this.getBack());
-                this.setFront(this.getDown());
-                this.setBack(this.getUp());
+                this.setUp(copied.getFront());
+                this.setDown(copied.getBack());
+                this.setFront(copied.getDown());
+                this.setBack(copied.getUp());
             } else {
                 /*
                  * 3) 남쪽으로 회전
@@ -208,10 +209,10 @@ public class Main {
                  * 밑면:6 -> 뒷쪽
                  */
                 //왼오x
-                this.setUp(this.getBack());
-                this.setDown(this.getFront());
-                this.setFront(this.getUp());
-                this.setBack(this.getDown());
+                this.setUp(copied.getBack());
+                this.setDown(copied.getFront());
+                this.setFront(copied.getUp());
+                this.setBack(copied.getDown());
             }
         }
 
@@ -267,11 +268,11 @@ public class Main {
         }
     }
 
-    static void rotateAndMove() {
+    static void rotateAndMove() throws CloneNotSupportedException {
         int ord = 0;
-        int curR = dice.getR();
-        int curC = dice.getC();
-        int direction = dice.getCurDir();
+        int curR;
+        int curC;
+        int direction;
 
         while (ord < K) {
             //1.주사위가 이동 방향으로 한 칸 굴러간다.
@@ -363,12 +364,12 @@ public class Main {
         return score * comp;//c * b
     }
 
-    static void pro() {
+    static void pro() throws CloneNotSupportedException {
         input();
         rotateAndMove();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         pro();
     }
 }
