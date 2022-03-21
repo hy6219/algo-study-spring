@@ -23,3 +23,11 @@
 |[(백준)2583_영역구하기](https://www.acmicpc.net/problem/2583)|그래프 탐색|
 |[(프로그래머스)폰켓몬](https://programmers.co.kr/learn/courses/30/lessons/1845)|그리디|
 |[(프로그래머스)신고결과받기](https://programmers.co.kr/learn/courses/30/lessons/92334)|자료구조-map|
+
+### 2-3. 6주차
+- 사정으로 인하여 다음주에 이어서 진행
+
+### 2-4. 7주차
+| `[문제](링크)` |분류|
+|--|--|
+|[(백준)주사위굴리기2](https://www.acmicpc.net/problem/23288)|구현|
