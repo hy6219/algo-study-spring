@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    static class Dice implements Cloneable{
+    static class Dice implements Cloneable {
         private int up;//윗면
         private int down;//밑면
         private int left;//왼쪽
@@ -148,7 +148,7 @@ public class Main {
          */
         public void rotateDice() throws CloneNotSupportedException {
             int dir = this.getCurDir();
-            System.out.println("dir: "+dir);
+
             Dice copied = (Dice) this.clone();
             if (dir == 1) {
                 //동
@@ -162,7 +162,7 @@ public class Main {
                  * 뒷면:2 -> 뒷면
                  * 밑면:6 -> 왼쪽
                  */
-                System.out.println("in");
+
                 this.setUp(copied.getLeft());
                 this.setDown(copied.getRight());
                 this.setLeft(copied.getDown());
@@ -221,21 +221,6 @@ public class Main {
             this.setScore(this.getScore() + score);
         }
 
-        @Override
-        public String toString() {
-            return "Dice{" +
-                    "up=" + up +
-                    ", down=" + down +
-                    ", left=" + left +
-                    ", right=" + right +
-                    ", front=" + front +
-                    ", back=" + back +
-                    ", curDir=" + curDir +
-                    ", r=" + r +
-                    ", c=" + c +
-                    ", score=" + score +
-                    '}';
-        }
     }
 
     static Scanner scanner;
@@ -283,7 +268,7 @@ public class Main {
 
             int nr = curR + dir[direction][0];
             int nc = curC + dir[direction][1];
-            System.out.println("before: "+dice);
+
             if (nr <= 0 || nc <= 0 || nr > N || nc > M) {
                 direction = (direction + 2) % 4;
                 nr = curR + dir[direction][0];
@@ -316,7 +301,7 @@ public class Main {
             int a = dice.getDown();
             //b
             int b = map[curR][curC];
-            System.out.println("a : "+a+", b: "+b);
+
             if (a > b) {
                 //시계방향 회전
                 dice.clockDir();
@@ -325,8 +310,6 @@ public class Main {
                 dice.clockReverseDir();
             }
             ord++;
-            System.out.println("after: "+dice);
-            System.out.println("--");
         }
 
         //점수 구하기
@@ -334,7 +317,7 @@ public class Main {
     }
 
     public static int getRoomScore(int r, int c) {
-        int score = 0;
+        int score = 1;
         int comp = map[r][c];
         boolean[][] visited = new boolean[N + 1][M + 1];
         Queue<int[]> queue = new LinkedList<>();
