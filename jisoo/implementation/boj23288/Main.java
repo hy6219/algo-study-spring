@@ -215,7 +215,7 @@ public class Main {
         }
 
         //점수 더하기
-        public void addScore(int score){
+        public void addScore(int score) {
             this.setScore(this.getScore() + score);
         }
 
@@ -282,19 +282,8 @@ public class Main {
             int nr = curR + dir[curDir][0];
             int nc = curC + dir[curDir][1];
 
-            if(nr <= 0 || nc <= 0 || nr >N || nc > M){
-                if(curDir == 0){
-                    //북, 남
-                    curDir = 2;
-                }else if(curDir == 2){
-                    curDir = 0;
-                }else if(curDir == 1){
-                    //동, 서
-                    curDir = 3;
-                }else{
-                    curDir = 1;
-                }
-
+            if (nr <= 0 || nc <= 0 || nr > N || nc > M) {
+                curDir = (curDir + 2) % 4;
                 nr = curR + dir[curDir][0];
                 nc = curC + dir[curDir][1];
             }
@@ -305,13 +294,14 @@ public class Main {
             //한칸 굴러가기
             dice.setR(curR);
             dice.setC(curC);
+            dice.rotateDice();
             //2.주사위가 도착한 칸 (x, y)에 대한 점수를 획득
             /*
             칸 (x, y)에 대한 점수는 다음과 같이 구할 수 있다. (x, y)에 있는 정수를 B라고 했을때, (x, y)에서
              동서남북 방향으로 연속해서 이동할 수 있는 칸의 수 C를 모두 구한다.
              이때 이동할 수 있는 칸에는 모두 정수 B가 있어야 한다. 여기서 점수는 B와 C를 곱한 값이다.
              */
-            dice.addScore(getRoomScore(nr,nc));
+            dice.addScore(getRoomScore(nr, nc));
 
             //3.주사위의 아랫면에 있는 정수 A와 주사위가 있는 칸 (x, y)에 있는 정수 B를 비교해 이동 방향을 결정
             /**
@@ -324,45 +314,45 @@ public class Main {
             //b
             int b = map[curR][curC];
 
-            if(a > b){
+            if (a > b) {
                 //시계방향 회전
                 dice.clockDir();
-            }else if(a < b){
+            } else if (a < b) {
                 //반시계방향 회전
                 dice.clockReverseDir();
             }
-            ord ++;
+            ord++;
         }
 
         //점수 구하기
         System.out.println(dice.getScore());
     }
 
-    public static int getRoomScore(int r, int c){
+    public static int getRoomScore(int r, int c) {
         int score = 0;
         int comp = map[r][c];
-        boolean[][] visited = new boolean[N+1][M+1];
+        boolean[][] visited = new boolean[N + 1][M + 1];
         Queue<int[]> queue = new LinkedList<>();
 
         visited[r][c] = true;
-        queue.add(new int[]{r,c});
+        queue.add(new int[]{r, c});
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int[] point = queue.poll();
             int rr = point[0];
             int cc = point[1];
-            score++;
 
-            for(int i = 0 ; i < 4; i++){
+            for (int i = 0; i < 4; i++) {
                 int nr = rr + dir[i][0];
                 int nc = cc + dir[i][1];
 
-                if(nr <=0 || nc <= 0 || nr > N || nc >M) continue;
-                if(visited[nr][nc]) continue;
-                if(map[nr][nc] != comp) continue;
+                if (nr <= 0 || nc <= 0 || nr > N || nc > M) continue;
+                if (visited[nr][nc]) continue;
+                if (map[nr][nc] != comp) continue;
 
                 visited[nr][nc] = true;
-                queue.add(new int[]{nr,nc});
+                queue.add(new int[]{nr, nc});
+                score++;
             }
         }
 
