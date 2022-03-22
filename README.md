@@ -31,3 +31,4 @@
 | `[문제](링크)` |분류|
 |--|--|
 |[(백준)주사위굴리기2](https://www.acmicpc.net/problem/23288)|구현|
+|[(백준)스타트와 링크](https://www.acmicpc.net/problem/14889)|완전탐색(브루트포스)|
