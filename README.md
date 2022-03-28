@@ -35,5 +35,6 @@
 |[(백준)절댓값 힙](https://www.acmicpc.net/problem/11286)|우선순위 큐|
 
 ### 2-5. 8주차
-|문제|분률|
+|문제|분류|
+|--|--|
 |[(백준)안전영역](https://www.acmicpc.net/problem/2468)|그래프탐색(bfs,dfs)|
