@@ -39,3 +39,9 @@
 |--|--|
 |[(백준)안전영역](https://www.acmicpc.net/problem/2468)|그래프탐색(bfs,dfs)|
 |[(백준)마인크래프트](https://acmicpc.net/problem/18111)|브루트포스|
+
+### 2-6. 9주차
+
+|문제|분류|
+|--|--|
+|[(백준)공약수](https://www.acmicpc.net/problem/2436)|브루트포스|
